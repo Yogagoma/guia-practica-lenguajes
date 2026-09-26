@@ -2,21 +2,17 @@
 Crea un script en Python que contenga una clase Estudiante con los atributos nombre y 
 promedio. 
 '''
-
+# Clase estudiante
 class Estudiante:
     def __init__(self, nombre:str, promedio:float):
         self.nombre = nombre
-        self.promedio = self.__validar_promedio(promedio)
+        self.promedio = promedio
 
-    # Valida el promedio ingresado antes de asignarlo en el constructor
-    def __validar_promedio(self, promedio:float):
-        try:
-            if promedio < 0.0:
-                raise ValueError("Número inválido")
-            return promedio
-        # En caso de un promedio negativo, asignar cero
-        except ValueError:
-            return 0.0
+# Validar que el promedio sea entre 0.0 y 20.0 puntos
+def validar_promedio()->float:
+    pass
+
+
 
 
 # Ingresar tamaño de la lista de estudiante mayor o igual a 5
@@ -36,7 +32,7 @@ estudiantes = []
 for i in range(n):
     print(f"{i+1}.\n") # mostrar número de estudiante
     nombre = input("Nombre: ")
-    promedio = float(input("Promedio: "))
+    promedio = validar_promedio()
     print()
     estudiantes.append(Estudiante(nombre, promedio))
 
