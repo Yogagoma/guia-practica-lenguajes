@@ -10,7 +10,14 @@ class Estudiante:
 
 # Validar que el promedio sea entre 0.0 y 20.0 puntos
 def validar_promedio()->float:
-    pass
+    while True:
+        promedio = float(input("Promedio: "))
+
+        # El bucle se rompe, si el promedio está en el rango requerido
+        if promedio >= 0.0 and promedio <= 20.0:
+            return promedio
+
+        print("El promedio debe ser entre 0.0 y 20.0 puntos.\n")
 
 
 
