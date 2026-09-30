@@ -7,29 +7,53 @@
     // Expresión regular que valida si la edad ingresada es correcta
     $patron_edad = "/^[1-9][0-9]?$/";
 
-    // Conexión con la base de datos usando PDO
-    try{
-        $pdo = new PDO("mysql:host=localhost;port=3307;dbname=estudiantes", "root", "");
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        // Campos recibidos del formulario en HTML
+        $nombre = $_POST["nombre"]; // Nombre
+        $edad = $_POST["edad"]; // Edad
+        $correo = $_POST["correo"]; // Correo
 
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            // Campos recibidos del formulario en HTML
-            $nombre = $_POST["nombre"]; // Nombre
-            $edad = $_POST["edad"]; // Edad
-            $correo = $_POST["correo"]; // Correo
+        // Validación de los datos obtenidos del formulario
 
-           // Sentencia preparada
-            $sql = "INSERT INTO estudiantes(nombre, edad, correo) VALUES(?, ?, ?)";
-
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$nombre, $edad, $correo]);
+        // No se ingresó el nombre
+        if(empty($nombre)){
+            $respuesta = "Ingrese el nombre del estudiante";
         }
 
+        elseif(empty($edad)){ // No se ingresó la edad
+            $respuesta = "Ingrese la edad del estudiante";
+        }
 
-    }catch(PDOException $e){} // La excepción arrojada se debe a que no existe una base de datos levantada
-    
-    
+        elseif(!preg_match($patron_edad, $edad) or !((int)$edad > 0 and (int)$edad <= 99) ){ // La edad no es un entero positivo
+            $respuesta = "Ingrese la edad correctamente";
+        }
 
-    
+        elseif(empty($correo)){ // No se ingresó el correo electrónico
+            $respuesta = "Ingrese el correo electrónico";
+        }
+        
+        elseif(!preg_match($patron_correo, $correo)){ // No se ingresó un correo válido
+             $respuesta = "Correo electrónico inválido";
+        }
+
+        else{ // Todos los datos cumplen con los requisitos
+            $respuesta = "Estudiante registrado con éxito";
+
+            // Conexión con la base de datos usando PDO
+            try{
+                $pdo = new PDO("mysql:host=localhost;port=3307;dbname=estudiantes", "root", "");
+
+                // Sentencia preparada
+                $sql = "INSERT INTO estudiantes(nombre, edad, correo) VALUES(?, ?, ?)";
+
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$nombre, $edad, $correo]);
+
+            }catch(PDOException $e){} // La excepción arrojada se debe a que no existe una base de datos levantada
+            
+        }
+
+    }    
 
 ?>
 
