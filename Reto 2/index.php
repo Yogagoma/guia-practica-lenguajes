@@ -18,7 +18,7 @@
             $correo = $_POST["correo"]; // Correo
 
            // Sentencia preparada
-            $sql = "INSERT INTO estudiantes(id, nombre, edad, correo) VALUES(?, ?, ?)";
+            $sql = "INSERT INTO estudiantes(nombre, edad, correo) VALUES(?, ?, ?)";
 
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$nombre, $edad, $correo]);
@@ -42,7 +42,7 @@
 </head>
 <body>
     <form action="index.php" method="post">
-        <label>Nombre: </label> <br>
+        <label>Nombre: </label>  <br>
         <input type="text" name="nombre"> <br>
 
         <label>Edad: </label> <br>
