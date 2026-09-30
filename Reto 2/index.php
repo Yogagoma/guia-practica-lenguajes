@@ -2,7 +2,7 @@
     $respuesta = "";
 
     // Expresión regular que define el patrón que debe seguir un correo
-    $patron_correo = "/^[a-zA-z0-9._+-%]+@[a-zA-z.-]+\.[a-zA-Z]{2}$/";
+    $patron_correo = "/^[a-zA-Z0-9._+%-]+@[a-zA-Z\.-]+\.[a-zA-Z]{2,3}$/";
 
     // Expresión regular que valida si la edad ingresada es correcta
     $patron_edad = "/^[1-9][0-9]?$/";
@@ -75,7 +75,11 @@
         <label>Correo: </label> <br>
         <input type="text" name="correo"> <br><br>
 
-        <input type="submit" value="Registrar"> <br>
+        <input type="submit" value="Registrar"> <br><br>
+
+        <?php
+            echo $respuesta;
+        ?>
     </form>
 </body>
 </html>
