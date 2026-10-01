@@ -1,0 +1,18 @@
+services:
+    db: # Servicio de base de datos
+        image: postgres:17-alpine # Imagen de PostgreSQL 17 de Alpine 
+        container_name: reto_3_db
+        environment:
+            POSTGRES_USER: root # Usuario principal administrado por postgreSQL
+            POSTGRES_PASSWORD: root_password # Contraseña de acceso a la base de datos
+            POSTGRES_DB: reto_3_db # Nombre de la base de datos en el contenedor
+        ports: 
+            - "5432:5432" # puerto de postgreSQL por defecto
+        volumes:
+            - postgres_data:/var/lib/postgresql/data # Los datos se mantendrán aunque el contenedor se detenga o elimine
+            - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql # Cargar schema.sql
+
+volumes:
+    # Declaración del volumen administrado por el motor de Docker
+  postgres_data:
+
