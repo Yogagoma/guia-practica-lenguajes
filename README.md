@@ -10,7 +10,12 @@ En dicho directorio, clonar el repositorio ejecutando:
 git clone https://github.com/Yogagoma/guia-practica-lenguajes.git
 ```
 
-Los retos están distribuidos de la siguiente forma:
+Los retos están contenidos en directorios que los identifican, distribuidos de la siguiente forma:
+
+1. reto-1
+2. reto-2
+3. reto-3
+4. reto-4
 
 ### Reto 1:  Python Multiparadigmático 
 Creación de un script con una clase Estudiante que posee nombre y promedio. Dada una lista de 5 estudiantes como mínimo, se requiere extraer y mostrar en la consola a los registros con un promedio mayor o igual a 14.0 puntos, aplicando programación funcional.
@@ -24,7 +29,7 @@ python main.py
 ### Reto 2: PHP, Formularios y Seguridad 
 Archivo index.php con formulario HTML para registar a un estudiante nuevo, tras ingresar nombre, edad y correo electrónico.
 
-El primer script escrito en PHP se encarga de validar que los datos recibidos del formulario. De cumplir con las especificaciones, se crea un nuevo registro en la base de datos, la cual no se encuentra levantada.
+El primer script escrito en PHP se encarga de validar que los datos recibidos del formulario y, de cumplir con las especificaciones, se crea un nuevo registro en la base de datos, la cual no se encuentra levantada. Por otro lado, segundo script (contenido dentro del fomulario) se encarga de mostrar que especifica si el registro se realizó exitosamente o si hay un campo no cumple con alguna especificación.
 
 Para visualizar el formulario se debe abrir el panel de control de XAMPP e iniciar el módulo de Apache (clicar el botón 'start'), luego escribir en un navegador web la dirección.
 
