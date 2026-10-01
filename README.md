@@ -1,7 +1,7 @@
 # Guía-práctica-lenguajes
 Retos de fundamentos de programación funcional, arquitectura web y bases de datos. 
 
-Para la ejecución de los programas, se requiere la instalación de Python, XAMPP y Docker (ya sea como Docker Desktop o Engine). Luego se debe entrar al directorio htdocs de XAMPP mediante el comando:
+Para la ejecución de los programas, se requiere la instalación de Python, XAMPP, Docker (ya sea como Docker Desktop o Engine) y Git(solo con la finalidad clonar el repositorio), todos dentro de una máquina con Windows 10 u 11. Luego se debe entrar al directorio htdocs de XAMPP mediante el comando:
 ```sh
 cd C:\xampp\htdocs
 ```
@@ -29,7 +29,7 @@ python main.py
 ### Reto 2: PHP, Formularios y Seguridad 
 Archivo index.php con formulario HTML para registar a un estudiante nuevo, tras ingresar nombre, edad y correo electrónico.
 
-El primer script escrito en PHP se encarga de validar que los datos recibidos del formulario y, de cumplir con las especificaciones, se crea un nuevo registro en la base de datos, la cual no se encuentra levantada. Por otro lado, segundo script (contenido dentro del fomulario) se encarga de mostrar que especifica si el registro se realizó exitosamente o si hay un campo no cumple con alguna especificación.
+El primer script escrito en PHP se encarga de validar los datos recibidos del formulario, así como prevenir inyección SQL y, de cumplir con las especificaciones, se crea un nuevo registro en la base de datos, la cual no se encuentra levantada. Por otro lado, los scripts contenidos dentro fomulario en HTML se encargan de verificar que el usuario no sea un sitio malicioso de terceros, además de mostrar si el registro se realizó exitosamente, si hay un campo que no cumple con alguna especificación o si existe algun otro error.
 
 Para visualizar el formulario se debe abrir el panel de control de XAMPP e iniciar el módulo de Apache (clicar el botón 'start'), luego escribir en un navegador web la dirección.
 
@@ -70,3 +70,8 @@ docker compose down -v
 
 ### Reto 4:  Mapeo de Datos con Django 
 Creación de un archivo models.py, dentro del cual se tradujo la tabla estudiantes del reto anterior hacia una clase de modelo usando el ORM de Django. Además, se destacó las ventajas que ofrece esta alternativa frente al uso de sentencias en crudo SQL, en términos de seguridad y rapidez de implementación.
+
+Para su desarrollo se instaló la librería Django, ejecutando:
+```sh
+pip install django
+```
