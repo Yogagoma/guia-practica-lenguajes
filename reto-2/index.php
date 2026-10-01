@@ -99,6 +99,10 @@
 
         <input type="submit" value="Registrar"> <br><br>
 
-
+        <?php if(!empty($respuesta)): ?>
+            <span style="color: <?php echo $color_respuesta; ?>; font-weight: bold;"> <!-- establecer color de respuesta -->
+                <?php echo $respuesta; ?> <!-- Mostrar mensaje de éxito o error -->
+            </span>
+        <?php endif; ?>
 </body>
 </html>
