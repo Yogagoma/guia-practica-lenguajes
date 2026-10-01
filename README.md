@@ -1,4 +1,4 @@
-# guia-practica-lenguajes
+# Guía-práctica-lenguajes
 Retos de fundamentos de programación funcional, arquitectura web y bases de datos. 
 
 Para la ejecución de los programas, se requiere la instalación de Python, XAMPP y Docker (ya sea como Docker Desktop o Engine). Luego se debe entrar al directorio htdocs de XAMPP mediante el comando:
@@ -31,3 +31,37 @@ Para visualizar el formulario se debe abrir el panel de control de XAMPP e inici
 <http://localhost/guia-practica-lenguajes/reto-2/index.php>
 
 ### Reto 3: Modelado Relacional y Docker  
+Script schema.sql que crea dos tablas, estudiantes y materias (incluyendo su relación N:M), normalizadas en tercera forma normal. Luego inserta dos registros de prueba en cada tabla.
+
+La base de datos se encuentra levantada en un contenedor que usa la imagen oficial de postgreSQL, versión 17 para el sistema operativo Alpine.
+
+Para interactuar con la base de datos, debe seguir los siguientes pasos:
+
+1. Dentro del directorio reto-3, levantar el contenedor de la base de datos, ejecutando en la interfaz de línea de comandos:
+```sh
+docker compose up -d
+```
+
+2. Acceder a la base de datos, ejecutando:
+```sh
+docker exec -it reto_3_db psql -U root -d reto_3_db
+```
+3. Puede realizar consultas en las tablas, ejecutando comandos como:
+```sh
+SELECT * FROM estudiantes;
+SELECT * FROM materias;
+SELECT * FROM inscripciones;
+```
+
+4. Para dejar de interactuar con la base de datos, ejecute:
+```sh
+exit
+```
+
+5. Para detener la ejecución del contenedor, ejecute:
+```sh
+docker compose down -v
+```
+
+### Reto 4:  Mapeo de Datos con Django 
+Creación de un archivo models.py, dentro del cual se tradujo la tabla estudiantes del reto anterior hacia una clase de modelo usando el ORM de Django. Además, se destacó las ventajas que ofrece esta alternativa frente al uso de sentencias en crudo SQL, en términos de seguridad y rapidez de implementación.
