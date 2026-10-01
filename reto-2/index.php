@@ -1,5 +1,10 @@
 <?php
     session_start(); // Iniciar sesión para usar $_SESSION
+
+    // Generar un token Anti-CSRF seguro de 64 caracteres si no existe en la sesión
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
     
     $respuesta = "";
     $color_respuesta = "black"; // Color por defecto de la respuesta del formulario
