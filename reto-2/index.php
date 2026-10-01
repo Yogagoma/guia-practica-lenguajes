@@ -89,25 +89,31 @@
     <title>Reto 2</title>
 </head>
 <body>
-    <form action="index.php" method="post">
-        <!-- Campo oculto con el Token Anti-CSRF para verificar que el usuario no sea un sitio malicioso de terceros-->
-        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
-        
-        <label>Nombre: </label>  <br>
-        <input type="text" name="nombre"> <br>
+    <center>
+        <form action="index.php" method="post">
+            <!-- Campo oculto con el Token Anti-CSRF para verificar que el usuario no sea un sitio malicioso de terceros-->
+            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
+            
+            <h2> Registro de estudiante </h2> <br>
 
-        <label>Edad: </label> <br>
-        <input type="text" name="edad"> <br>
+            <!-- Entrada de datos -->
+            <label>Nombre </label>  <br>
+            <input type="text" name="nombre"> <br> <!-- Nombre -->
 
-        <label>Correo: </label> <br>
-        <input type="text" name="correo"> <br><br>
+            <label>Edad </label> <br>
+            <input type="text" name="edad"> <br> <!-- Edad -->
 
-        <input type="submit" value="Registrar"> <br><br>
+            <label>Correo </label> <br>
+            <input type="text" name="correo"> <br><br> <!-- Correo electrónico -->
 
-        <?php if(!empty($respuesta)): ?>
-            <span style="color: <?php echo $color_respuesta; ?>; font-weight: bold;"> <!-- establecer color de respuesta -->
-                <?php echo $respuesta; ?> <!-- Mostrar mensaje de éxito o error -->
-            </span>
-        <?php endif; ?>
+            <input type="submit" value="Registrar"> <br><br> <!-- Botón para registrar datos -->
+
+            <?php if(!empty($respuesta)): ?>
+                <span style="color: <?php echo $color_respuesta; ?>; font-weight: bold;"> <!-- establecer color de respuesta -->
+                    <?php echo $respuesta; ?> <!-- Mostrar mensaje de éxito o error -->
+                </span>
+            <?php endif; ?>
+        </form>
+     </center>
 </body>
 </html>
